@@ -19,9 +19,7 @@ class MovieDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-
+        
         titleLabel.text = movie["title"] as? String
         titleLabel.sizeToFit()
         
@@ -42,14 +40,24 @@ class MovieDetailsViewController: UIViewController {
     }
     
     
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        //pass the selected movie to the details view controller
+        let trailerViewController = segue.destination as! TrailerViewController //connect them
+        trailerViewController.movie = movie //movie that we found is set now
+        trailerViewController.id = movie["id"] as! Int
+        
+        //not selected still when we go back
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
+        
     }
-    */
 
+    
 }
